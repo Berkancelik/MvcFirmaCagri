@@ -306,6 +306,7 @@
     <Content Include="web\maps\usofa.json" />
     <Content Include="Views\Shared\FirmaLayout.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Default\AktifCagrilar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

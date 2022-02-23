@@ -13,5 +13,10 @@ namespace MvcFirmaCagri.Controllers
         {
             return View();
         }
+
+        public ActionResult AktifCagrilar()
+        {
+            return View();
+        }
     }
 }
