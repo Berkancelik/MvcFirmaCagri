@@ -370,6 +370,7 @@
     <Content Include="Views\Default\AktifCagrilar.cshtml" />
     <Content Include="Views\Default\PasifCagrilar.cshtml" />
     <Content Include="Views\Default\YeniCagri.cshtml" />
+    <Content Include="Views\Default\CagriDetay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
