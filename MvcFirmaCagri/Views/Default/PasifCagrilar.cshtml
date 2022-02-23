@@ -1,7 +1,7 @@
 ﻿@using MvcFirmaCagri.Models.Entity
 @model List<TblCagrilar>
 @{
-    ViewBag.Title = "AktifCagrilar";
+    ViewBag.Title = "PasifCagrilar";
     Layout = "~/Views/Shared/FirmaLayout.cshtml";
 }
 
@@ -15,15 +15,15 @@
     </tr>
     @foreach (var x in Model)
     {
-    <tr>
-        <td>@x.ID</td>
-        <td>@x.Konu</td>
-        <td>@x.Tarih</td>
-        <td><a href="#" class="btn btn-success"></a>Düzenle</td>
-        <td><a href="#" class="btn btn-info"></a>Detaylar</td>
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Konu</td>
+            <td>@x.Tarih</td>
+            <td><a href="#" class="btn btn-info"></a>Detaylar</td>
 
-    </tr>
+        </tr>
     }
 
 </table>
+
 <a href="/Default/YeniCagri" class="btn btn bg-primary">Yeni Çağrı Ekle</a>
