@@ -46,8 +46,9 @@ namespace MvcFirmaCagri.Controllers
 
         public ActionResult CagriDetay(int id)
         {
-            var cagir = db.TblCagrilars.Where(x => x.ID == id).ToList();
+            var cagri = db.TblCagriDetays.Where(x => x.Cagri == id).ToList();
             return View();
         }
+     
     }
 }

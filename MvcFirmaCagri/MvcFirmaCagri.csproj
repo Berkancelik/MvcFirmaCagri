@@ -151,6 +151,9 @@
     <Compile Include="Models\Entity\TblAdmin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\TblCagriDetay.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\TblCagrilar.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

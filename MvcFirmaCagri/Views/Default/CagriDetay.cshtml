@@ -1,8 +1,31 @@
-﻿
-@{
-    ViewBag.Title = "CagriDetay";
-    Layout = "~/Views/Shared/FirmaLayout.cshtml";
-}
+﻿@using MvcFirmaCagri.Models.Entity
+@model List<TblCagriDetay>
 
-<h2>CagriDetay</h2>
+    @{
+        ViewBag.Title = "CagriDetay";
+        Layout = "~/Views/Shared/FirmaLayout.cshtml";
+    }
+
+    <h2>Çağrı Detayları</h2>
+    <br />
+
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Tarih</th>
+            <th>Saat</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ID</td>
+                <td>@x.Aciklama</td>
+                <td>@x.Tarih</td>
+                <td>@x.Saat</td>
+
+            </tr>
+        }
+
+    </table>
 
