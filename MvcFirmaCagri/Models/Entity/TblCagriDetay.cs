@@ -19,5 +19,7 @@ namespace MvcFirmaCagri.Models.Entity
         public string Aciklama { get; set; }
         public Nullable<System.DateTime> Tarih { get; set; }
         public string Saat { get; set; }
+    
+        public virtual TblCagrilar TblCagrilar { get; set; }
     }
 }

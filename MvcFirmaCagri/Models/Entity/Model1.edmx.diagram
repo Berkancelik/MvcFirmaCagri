@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="efe0a131d2c04aebb12717ffa0ef1583" Name="Diagram1">
         <EntityTypeShape EntityType="DbisTakipModel.TblAdmin" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbisTakipModel.TblCagrilar" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbisTakipModel.TblCagrilar" Width="1.5" PointX="4.25" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbisTakipModel.TblDepartmanlar" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbisTakipModel.TblFirmalar" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="DbisTakipModel.TblGorevDetaylar" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
@@ -17,7 +17,8 @@
         <AssociationConnector Association="DbisTakipModel.FK_TblGorevDetaylar_TblGorevler" ManuallyRouted="false" />
         <AssociationConnector Association="DbisTakipModel.FK_TblGorevler_TblPersonel" ManuallyRouted="false" />
         <AssociationConnector Association="DbisTakipModel.FK_TblGorevler_TblPersonel1" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="DbisTakipModel.TblCagriDetay" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="DbisTakipModel.TblCagriDetay" Width="1.5" PointX="6.875" PointY="6.75" />
+        <AssociationConnector Association="DbisTakipModel.FK_TblCagriDetay_TblCagrilar" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

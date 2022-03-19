@@ -89,6 +89,18 @@
           <Property Name="Departman" Type="int" />
           <Property Name="Durum" Type="bit" />
         </EntityType>
+        <Association Name="FK_TblCagriDetay_TblCagrilar">
+          <End Role="TblCagrilar" Type="Self.TblCagrilar" Multiplicity="0..1" />
+          <End Role="TblCagriDetay" Type="Self.TblCagriDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCagrilar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TblCagriDetay">
+              <PropertyRef Name="Cagri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TblCagrilar_TblFirmalar">
           <End Role="TblFirmalar" Type="Self.TblFirmalar" Multiplicity="0..1" />
           <End Role="TblCagrilar" Type="Self.TblCagrilar" Multiplicity="*" />
@@ -158,6 +170,10 @@
           <EntitySet Name="TblGorevDetaylar" EntityType="Self.TblGorevDetaylar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblGorevler" EntityType="Self.TblGorevler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblPersonel" EntityType="Self.TblPersonel" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TblCagriDetay_TblCagrilar" Association="Self.FK_TblCagriDetay_TblCagrilar">
+            <End Role="TblCagrilar" EntitySet="TblCagrilar" />
+            <End Role="TblCagriDetay" EntitySet="TblCagriDetay" />
+          </AssociationSet>
           <AssociationSet Name="FK_TblCagrilar_TblFirmalar" Association="Self.FK_TblCagrilar_TblFirmalar">
             <End Role="TblFirmalar" EntitySet="TblFirmalar" />
             <End Role="TblCagrilar" EntitySet="TblCagrilar" />
@@ -202,6 +218,7 @@
           <Property Name="Durum" Type="Boolean" />
           <Property Name="Tarih" Type="DateTime" Precision="0" />
           <NavigationProperty Name="TblFirmalar" Relationship="Self.FK_TblCagrilar_TblFirmalar" FromRole="TblCagrilar" ToRole="TblFirmalar" />
+          <NavigationProperty Name="TblCagriDetays" Relationship="DbisTakipModel.FK_TblCagriDetay_TblCagrilar" FromRole="TblCagrilar" ToRole="TblCagriDetay" />
         </EntityType>
         <EntityType Name="TblDepartmanlar">
           <Key>
@@ -356,6 +373,10 @@
             <End Role="TblGorevler" EntitySet="TblGorevlers" />
           </AssociationSet>
           <EntitySet Name="TblCagriDetays" EntityType="DbisTakipModel.TblCagriDetay" />
+          <AssociationSet Name="FK_TblCagriDetay_TblCagrilar" Association="DbisTakipModel.FK_TblCagriDetay_TblCagrilar">
+            <End Role="TblCagrilar" EntitySet="TblCagrilars" />
+            <End Role="TblCagriDetay" EntitySet="TblCagriDetays" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TblCagriDetay">
           <Key>
@@ -366,7 +387,20 @@
           <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Tarih" Type="DateTime" Precision="0" />
           <Property Name="Saat" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="TblCagrilar" Relationship="DbisTakipModel.FK_TblCagriDetay_TblCagrilar" FromRole="TblCagriDetay" ToRole="TblCagrilar" />
         </EntityType>
+        <Association Name="FK_TblCagriDetay_TblCagrilar">
+          <End Type="DbisTakipModel.TblCagrilar" Role="TblCagrilar" Multiplicity="0..1" />
+          <End Type="DbisTakipModel.TblCagriDetay" Role="TblCagriDetay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCagrilar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TblCagriDetay">
+              <PropertyRef Name="Cagri" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

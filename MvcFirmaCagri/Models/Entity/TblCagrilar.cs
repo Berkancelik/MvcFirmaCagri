@@ -14,6 +14,12 @@ namespace MvcFirmaCagri.Models.Entity
     
     public partial class TblCagrilar
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TblCagrilar()
+        {
+            this.TblCagriDetays = new HashSet<TblCagriDetay>();
+        }
+    
         public int ID { get; set; }
         public Nullable<int> CagriFirma { get; set; }
         public string Konu { get; set; }
@@ -22,5 +28,7 @@ namespace MvcFirmaCagri.Models.Entity
         public Nullable<System.DateTime> Tarih { get; set; }
     
         public virtual TblFirmalar TblFirmalar { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TblCagriDetay> TblCagriDetays { get; set; }
     }
 }
