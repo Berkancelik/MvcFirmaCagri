@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MvcFirmaCagri.Models.Entity;
 namespace MvcFirmaCagri.Controllers
 {
+    [Authorize]
     public class DefaultController : Controller
     {
         // GET: Default
@@ -15,6 +16,7 @@ namespace MvcFirmaCagri.Controllers
         }
 
         DbisTakipEntities db = new DbisTakipEntities();
+
         public ActionResult AktifCagrilar()
         {
             var cagrilar = db.TblCagrilars.Where(x=>x.Durum==true && x.CagriFirma==4).ToList();

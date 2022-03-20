@@ -50,7 +50,8 @@
           <Property Name="Yetkili" Type="nvarchar" MaxLength="50" />
           <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
           <Property Name="Mail" Type="nvarchar" MaxLength="50" />
-          <Property Name="il" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="il" Type="nvarchar" MaxLength="20" />
           <Property Name="ilce" Type="nvarchar" MaxLength="50" />
           <Property Name="Sektor" Type="nvarchar" MaxLength="50" />
           <Property Name="Adres" Type="nvarchar" MaxLength="50" />
@@ -237,11 +238,12 @@
           <Property Name="Yetkili" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="il" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="il" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Sektor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TblCagrilars" Relationship="Self.FK_TblCagrilar_TblFirmalar" FromRole="TblFirmalar" ToRole="TblCagrilar" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TblGorevDetaylar">
           <Key>
@@ -439,6 +441,7 @@
           <EntitySetMapping Name="TblFirmalars">
             <EntityTypeMapping TypeName="DbisTakipModel.TblFirmalar">
               <MappingFragment StoreEntitySet="TblFirmalar">
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
                 <ScalarProperty Name="Yetkili" ColumnName="Yetkili" />
