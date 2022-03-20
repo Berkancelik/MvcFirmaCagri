@@ -497,6 +497,7 @@
     <Content Include="Views\Default\CagriDetay.cshtml" />
     <Content Include="Views\Default\CagriGetir.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Default\ProfilDuzenle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

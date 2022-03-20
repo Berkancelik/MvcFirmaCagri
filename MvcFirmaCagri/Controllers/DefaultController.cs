@@ -43,9 +43,11 @@ namespace MvcFirmaCagri.Controllers
         [HttpPost]
         public ActionResult YeniCagri(TblCagrilar p )
         {
+            var mail = (string)Session["Mail"];
+            var id = db.TblFirmalars.Where(x => x.Mail == mail).Select(y => y.ID).FirstOrDefault();
             p.Durum = true;
             p.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
-            p.CagriFirma = p.ID;
+            p.CagriFirma = id;
             db.TblCagrilars.Add(p);
             db.SaveChanges();
             return RedirectToAction("AktifCagrilar");
@@ -69,6 +71,16 @@ namespace MvcFirmaCagri.Controllers
             cagri.Aciklama = p.Aciklama;
             db.SaveChanges();
             return RedirectToAction("AktifCagrilar");
+        }
+
+        [HttpGet]
+        public ActionResult ProfilDuzenle( )
+        {
+
+            var mail = (string)Session["Mail"];
+            var id = db.TblFirmalars.Where(x => x.Mail == mail).Select(y => y.ID).FirstOrDefault();
+            var profil = db.TblFirmalars.Where(x => x.ID == id).FirstOrDefault();
+            return View(profil);
         }
 
        
