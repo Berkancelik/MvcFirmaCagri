@@ -19,13 +19,18 @@ namespace MvcFirmaCagri.Controllers
 
         public ActionResult AktifCagrilar()
         {
-            var cagrilar = db.TblCagrilars.Where(x=>x.Durum==true && x.CagriFirma==4).ToList();
+            var mail = (string)Session["Mail"];
+            var id = db.TblFirmalars.Where(x => x.Mail == mail).Select(y => y.ID).FirstOrDefault();
+            ViewBag.m = mail;
+            var cagrilar = db.TblCagrilars.Where(x=>x.Durum==true && x.CagriFirma==id).ToList();
             return View(cagrilar);
         }
 
         public ActionResult PasifCagrilar()
         {
-            var cagrilar = db.TblCagrilars.Where(x => x.Durum == false && x.CagriFirma == 4).ToList();
+            var mail = (string)Session["Mail"];
+            var id = db.TblFirmalars.Where(x => x.Mail == mail).Select(y => y.ID).FirstOrDefault();
+            var cagrilar = db.TblCagrilars.Where(x => x.Durum == false && x.CagriFirma == id).ToList();
             return View(cagrilar);
         }
 
@@ -40,7 +45,7 @@ namespace MvcFirmaCagri.Controllers
         {
             p.Durum = true;
             p.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
-            p.CagriFirma = 4;
+            p.CagriFirma = p.ID;
             db.TblCagrilars.Add(p);
             db.SaveChanges();
             return RedirectToAction("AktifCagrilar");
