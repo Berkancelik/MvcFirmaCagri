@@ -17,7 +17,7 @@ namespace MvcFirmaCagri.Controllers
 
         DbisTakipEntities db = new DbisTakipEntities();
 
-        public ActionResult AktifCagrilar()
+        public ActionResult AktifCagrilar() 
         {
             var mail = (string)Session["Mail"];
             var id = db.TblFirmalars.Where(x => x.Mail == mail).Select(y => y.ID).FirstOrDefault();
