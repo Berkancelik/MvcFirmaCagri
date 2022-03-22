@@ -85,6 +85,20 @@ namespace MvcFirmaCagri.Controllers
 
         public ActionResult AnaSayfa()
         {
+
+            var mail = (string)Session["Mail"];
+            var id = db.TblFirmalars.Where(x => x.Mail == mail).Select(y => y.ID).FirstOrDefault();
+
+            var toplamcagri = db.TblCagrilars.Where(x => x.CagriFirma == id).Count();
+            var aktifcagri = db.TblCagrilars.Where(x => x.CagriFirma == id && x.Durum == true).Count();
+            var pasifcagri = db.TblCagrilars.Where(x => x.CagriFirma == id && x.Durum == false).Count();
+            var yetkili = db.TblFirmalars.Where(x => x.ID == id).Select(y => y.Yetkili).FirstOrDefault();
+            var sektor = db.TblFirmalars.Where(x => x.ID == id).Select(y => y.Sektor).FirstOrDefault();
+            ViewBag.c1 = toplamcagri;
+            ViewBag.c2 = aktifcagri;
+            ViewBag.c3 = pasifcagri;
+            ViewBag.c4 = yetkili;
+            ViewBag.c5 = sektor;
             return View();
         }
 
