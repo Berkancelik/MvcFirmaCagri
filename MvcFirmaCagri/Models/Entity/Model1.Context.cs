@@ -33,5 +33,6 @@ namespace MvcFirmaCagri.Models.Entity
         public virtual DbSet<TblGorevler> TblGorevlers { get; set; }
         public virtual DbSet<TblPersonel> TblPersonels { get; set; }
         public virtual DbSet<TblCagriDetay> TblCagriDetays { get; set; }
+        public virtual DbSet<TblMesajlar> TblMesajlars { get; set; }
     }
 }

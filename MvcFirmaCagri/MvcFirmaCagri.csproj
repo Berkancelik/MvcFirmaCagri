@@ -170,6 +170,9 @@
     <Compile Include="Models\Entity\TblGorevler.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entity\TblMesajlar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entity\TblPersonel.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
