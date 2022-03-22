@@ -104,10 +104,16 @@ namespace MvcFirmaCagri.Controllers
 
         public PartialViewResult Partial1()
         {
-            var mail = (string)Session["Mail"];
-            var mesajlar = db.TblMesajlars.Where(x => x.Alici == mail).ToList();
 
-            return PartialView();
+
+            // true okunmamış mesaj - false okunmuş mesaj
+            var mail = (string)Session["Mail"];
+            var mesajlar = db.TblMesajlars.Where(x => x.Alici == mail && x.Durum ==true).ToList();
+            var mesajsayisi = db.TblMesajlars.Where(x => x.Alici == mail && x.Durum == true).Count();
+
+            ViewBag.m1 = mesajsayisi;
+
+            return PartialView(mesajlar);
         }
 
        
