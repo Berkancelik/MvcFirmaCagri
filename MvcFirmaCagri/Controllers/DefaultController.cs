@@ -83,6 +83,11 @@ namespace MvcFirmaCagri.Controllers
             return View(profil);
         }
 
+        public ActionResult AnaSayfa()
+        {
+            return View();
+        }
+
        
      
     }
