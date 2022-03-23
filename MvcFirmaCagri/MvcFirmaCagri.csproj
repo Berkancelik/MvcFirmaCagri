@@ -557,6 +557,7 @@
     <Content Include="web2\starter\assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="web2\starter\assets\fonts\FontAwesome.otf" />
     <Content Include="Views\Default\Partial1.cshtml" />
+    <Content Include="Views\Default\Partial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

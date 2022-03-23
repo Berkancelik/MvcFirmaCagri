@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using MvcFirmaCagri.Models.Entity;
 namespace MvcFirmaCagri.Controllers
 {
@@ -116,6 +117,20 @@ namespace MvcFirmaCagri.Controllers
             return PartialView(mesajlar);
         }
 
+        public PartialViewResult Partial2()
+        {
+            var mail = (string)Session["Mail"];
+            var id = db.TblFirmalars.Where(x => x.Mail == mail).Select(y => y.ID).FirstOrDefault();
+            var cagrilar = db.TblCagrilars.Where(x => x.CagriFirma == id).ToList();
+            return PartialView(cagrilar);
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
        
      
     }
