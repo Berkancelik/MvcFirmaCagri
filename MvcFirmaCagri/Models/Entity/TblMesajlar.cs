@@ -15,8 +15,8 @@ namespace MvcFirmaCagri.Models.Entity
     public partial class TblMesajlar
     {
         public int ID { get; set; }
-        public string Gonderen { get; set; }
-        public string Alici { get; set; }
+        public Nullable<int> Gonderen { get; set; }
+        public Nullable<int> Alici { get; set; }
         public string Konu { get; set; }
         public string Mesaj { get; set; }
         public Nullable<System.DateTime> Tarih { get; set; }

@@ -55,6 +55,7 @@
           <Property Name="ilce" Type="nvarchar" MaxLength="50" />
           <Property Name="Sektor" Type="nvarchar" MaxLength="50" />
           <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gorsel" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="TblGorevDetaylar">
           <Key>
@@ -82,8 +83,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Gonderen" Type="nvarchar" MaxLength="50" />
-          <Property Name="Alici" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gonderen" Type="int" />
+          <Property Name="Alici" Type="int" />
           <Property Name="Konu" Type="nvarchar" MaxLength="50" />
           <Property Name="Mesaj" Type="nvarchar(max)" />
           <Property Name="Tarih" Type="date" />
@@ -257,6 +258,7 @@
           <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TblCagrilars" Relationship="Self.FK_TblCagrilar_TblFirmalar" FromRole="TblFirmalar" ToRole="TblCagrilar" />
           <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gorsel" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TblGorevDetaylar">
           <Key>
@@ -422,8 +424,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Gonderen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Alici" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gonderen" Type="Int32" />
+          <Property Name="Alici" Type="Int32" />
           <Property Name="Konu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Mesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Tarih" Type="DateTime" Precision="0" />
@@ -467,6 +469,7 @@
           <EntitySetMapping Name="TblFirmalars">
             <EntityTypeMapping TypeName="DbisTakipModel.TblFirmalar">
               <MappingFragment StoreEntitySet="TblFirmalar">
+                <ScalarProperty Name="Gorsel" ColumnName="Gorsel" />
                 <ScalarProperty Name="Sifre" ColumnName="Sifre" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Ad" ColumnName="Ad" />
