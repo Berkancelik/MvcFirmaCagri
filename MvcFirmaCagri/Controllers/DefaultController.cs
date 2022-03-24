@@ -109,8 +109,9 @@ namespace MvcFirmaCagri.Controllers
 
             // true okunmamış mesaj - false okunmuş mesaj
             var mail = (string)Session["Mail"];
-            var mesajlar = db.TblMesajlars.Where(x => x.Alici == 1 && x.Durum ==true).ToList();
-            var mesajsayisi = db.TblMesajlars.Where(x => x.Alici == 1 && x.Durum == true).Count();
+            var id = db.TblFirmalars.Where(x => x.Mail == mail).Select(y => y.ID).FirstOrDefault();
+            var mesajlar = db.TblMesajlars.Where(x => x.Alici == id && x.Durum ==true).ToList();
+            var mesajsayisi = db.TblMesajlars.Where(x => x.Alici == id && x.Durum == true).Count();
 
             ViewBag.m1 = mesajsayisi;
 
