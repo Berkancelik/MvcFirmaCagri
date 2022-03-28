@@ -95,11 +95,16 @@ namespace MvcFirmaCagri.Controllers
             var pasifcagri = db.TblCagrilars.Where(x => x.CagriFirma == id && x.Durum == false).Count();
             var yetkili = db.TblFirmalars.Where(x => x.ID == id).Select(y => y.Yetkili).FirstOrDefault();
             var sektor = db.TblFirmalars.Where(x => x.ID == id).Select(y => y.Sektor).FirstOrDefault();
+            var firmaadi = db.TblFirmalars.Where(x => x.ID == id).Select(y => y.Ad).FirstOrDefault();
+            var gorsel = db.TblFirmalars.Where(x => x.ID == id).Select(y => y.Gorsel).FirstOrDefault();
+
             ViewBag.c1 = toplamcagri;
             ViewBag.c2 = aktifcagri;
             ViewBag.c3 = pasifcagri;
             ViewBag.c4 = yetkili;
             ViewBag.c5 = sektor;
+            ViewBag.c6 = firmaadi;
+            ViewBag.c7 = gorsel;
             return View();
         }
 
