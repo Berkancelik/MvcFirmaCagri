@@ -163,6 +163,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TblMesajlar_TblFirmalar">
+          <End Role="TblFirmalar" Type="Self.TblFirmalar" Multiplicity="0..1" />
+          <End Role="TblMesajlar" Type="Self.TblMesajlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblFirmalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TblMesajlar">
+              <PropertyRef Name="Gonderen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TblPersonel_TblDepartmanlar">
           <End Role="TblDepartmanlar" Type="Self.TblDepartmanlar" Multiplicity="0..1" />
           <End Role="TblPersonel" Type="Self.TblPersonel" Multiplicity="*" />
@@ -204,6 +216,10 @@
           <AssociationSet Name="FK_TblGorevler_TblPersonel1" Association="Self.FK_TblGorevler_TblPersonel1">
             <End Role="TblPersonel" EntitySet="TblPersonel" />
             <End Role="TblGorevler" EntitySet="TblGorevler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblMesajlar_TblFirmalar" Association="Self.FK_TblMesajlar_TblFirmalar">
+            <End Role="TblFirmalar" EntitySet="TblFirmalar" />
+            <End Role="TblMesajlar" EntitySet="TblMesajlar" />
           </AssociationSet>
           <AssociationSet Name="FK_TblPersonel_TblDepartmanlar" Association="Self.FK_TblPersonel_TblDepartmanlar">
             <End Role="TblDepartmanlar" EntitySet="TblDepartmanlar" />
@@ -259,6 +275,7 @@
           <NavigationProperty Name="TblCagrilars" Relationship="Self.FK_TblCagrilar_TblFirmalar" FromRole="TblFirmalar" ToRole="TblCagrilar" />
           <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Gorsel" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TblMesajlars" Relationship="DbisTakipModel.FK_TblMesajlar_TblFirmalar" FromRole="TblFirmalar" ToRole="TblMesajlar" />
         </EntityType>
         <EntityType Name="TblGorevDetaylar">
           <Key>
@@ -395,6 +412,10 @@
             <End Role="TblCagriDetay" EntitySet="TblCagriDetays" />
           </AssociationSet>
           <EntitySet Name="TblMesajlars" EntityType="DbisTakipModel.TblMesajlar" />
+          <AssociationSet Name="FK_TblMesajlar_TblFirmalar" Association="DbisTakipModel.FK_TblMesajlar_TblFirmalar">
+            <End Role="TblFirmalar" EntitySet="TblFirmalars" />
+            <End Role="TblMesajlar" EntitySet="TblMesajlars" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TblCagriDetay">
           <Key>
@@ -430,7 +451,20 @@
           <Property Name="Mesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Tarih" Type="DateTime" Precision="0" />
           <Property Name="Durum" Type="Boolean" />
+          <NavigationProperty Name="TblFirmalar" Relationship="DbisTakipModel.FK_TblMesajlar_TblFirmalar" FromRole="TblMesajlar" ToRole="TblFirmalar" />
         </EntityType>
+        <Association Name="FK_TblMesajlar_TblFirmalar">
+          <End Type="DbisTakipModel.TblFirmalar" Role="TblFirmalar" Multiplicity="0..1" />
+          <End Type="DbisTakipModel.TblMesajlar" Role="TblMesajlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblFirmalar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TblMesajlar">
+              <PropertyRef Name="Gonderen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

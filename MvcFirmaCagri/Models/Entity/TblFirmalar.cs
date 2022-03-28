@@ -18,6 +18,7 @@ namespace MvcFirmaCagri.Models.Entity
         public TblFirmalar()
         {
             this.TblCagrilars = new HashSet<TblCagrilar>();
+            this.TblMesajlars = new HashSet<TblMesajlar>();
         }
     
         public int ID { get; set; }
@@ -34,5 +35,7 @@ namespace MvcFirmaCagri.Models.Entity
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblCagrilar> TblCagrilars { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TblMesajlar> TblMesajlars { get; set; }
     }
 }

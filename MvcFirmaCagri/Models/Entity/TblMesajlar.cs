@@ -21,5 +21,7 @@ namespace MvcFirmaCagri.Models.Entity
         public string Mesaj { get; set; }
         public Nullable<System.DateTime> Tarih { get; set; }
         public Nullable<bool> Durum { get; set; }
+    
+        public virtual TblFirmalar TblFirmalar { get; set; }
     }
 }
