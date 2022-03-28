@@ -134,6 +134,11 @@ namespace MvcFirmaCagri.Controllers
             Session.Abandon();
             return RedirectToAction("Index", "Login");
         }
+
+        public PartialViewResult Partial3()
+        {
+            return PartialView();
+        }
        
      
     }
